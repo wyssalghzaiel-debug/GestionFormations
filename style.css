@@ -1,0 +1,166 @@
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 20px;
+}
+h1 {
+color:#2c3e50;
+}
+p {
+margin: 10px}
+form {
+background: white;
+padding: 20px;
+width: 300px;
+border-radius: 5px;
+}
+input {
+width: 100%;
+padding: 8px;
+}
+input[type="submit"] {
+background-color: #3498db;
+color: white;
+border: none;
+cursor: pointer;
+}
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Arrière-plan de la page */
+body {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Carte du formulaire */
+form {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Titre */
+h1 {
+  position: absolute;
+  top: 40px;
+  color: white;
+  font-size: 42px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  color: #374151;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Champs input */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* Effet focus */
+input:focus {
+  border-color: #4f46e5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+}
+
+/* Bouton */
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7b76df;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover bouton */
+input[type="submit"]:hover {
+  background: #4c41c4;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #c75596, #c4618c);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Carte centrale */
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+/* Titre */
+h1 {
+  text-align: center;
+  color: #70127f;
+  margin-bottom: 25px;
+}
+
+/* Texte du profil */
+p {
+  font-size: 16px;
+  margin: 12px 0;
+  color: #374151;
+}
+
+/* Nom des champs */
+strong {
+  color: #6a3f15;
+}
+
+/* Effet au survol */
+.container:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
