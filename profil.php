@@ -1,5 +1,5 @@
 <?php
-$nom = "AYARI";
+$nom = "Ben ali";
 $prenom = "Asma";
 $email = "asma.ayari@email.com";
 $age = 30;
