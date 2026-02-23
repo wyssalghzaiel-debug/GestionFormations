@@ -26,7 +26,7 @@ $formation="Développement Web";
   <p><strong>Âge :</strong> 30 ans</p>
 
   <?php
-  echo "<p>Bienvenue $prenom dans la formation $formation</p>";
+  echo "<p classe="p1" >Bienvenue $prenom dans la formation $formation</p>";
   ?>
 </div>
 

@@ -49,3 +49,7 @@ strong {
   transform: translateY(-3px);
   transition: 0.3s;
 }
+.p1 {
+  color: rgb(151, 81, 181);
+  font-weight: bold;
+}
