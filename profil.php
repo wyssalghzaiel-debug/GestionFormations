@@ -28,6 +28,5 @@ $formation="Développement Web";
   <?php
 echo "<p class='p1'>Bienvenue $prenom dans la formation $formation</p>";  ?>
 </div>
-
 </body>
 </html>
