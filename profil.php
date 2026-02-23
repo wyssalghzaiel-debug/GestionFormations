@@ -2,17 +2,33 @@
 $nom = "AYARI";
 $prenom = "Asma";
 $email = "asma.ayari@email.com";
+$age = 30;
+$ville="Tunis";
+$formation="Développement Web";
 ?>
+
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
 <title>Profil utilisateur</title>
 </head>
+
 <body>
+
 <h1>Profil utilisateur</h1>
-<p><strong>Nom :</strong> <?= $nom ?></p>
-<p><strong>Prénom :</strong> <?= $prenom ?></p>
-<p><strong>Email :</strong> <?= $email ?></p>
+
+<div class="container">
+  <p><strong>Nom :</strong> AYARI</p>
+  <p><strong>Prénom :</strong> Asma</p>
+  <p><strong>Email :</strong> asma.ayari@email.com</p>
+  <p><strong>Âge :</strong> 30 ans</p>
+
+  <?php
+  echo "<p>Bienvenue $prenom dans la formation $formation</p>";
+  ?>
+</div>
+
 </body>
 </html>
