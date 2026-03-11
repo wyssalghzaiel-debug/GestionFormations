@@ -1,5 +1,5 @@
 <?php
-$formation = array('developement web_', 'reseaux_', 'securite_', 'base_');
+$formation = array('developpement web_', 'reseaux_', 'securite_', 'base_');
 
 for($i = 0; $i < count($formation); $i++){
     echo $formation[$i] . "<br>";
