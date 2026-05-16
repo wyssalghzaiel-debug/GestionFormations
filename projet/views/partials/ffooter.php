@@ -1,8 +1,16 @@
-<footer>
+<footer class="footer">
 
-    <p>
-        © 2026 EduPro - Plateforme E-learning
-    </p>
+<h2 class="footer-logo">
+
+Learnify
+
+</h2>
+
+<p class="footer-text">
+
+© 2026 Learnify — Learn Without Limits
+
+</p>
 
 </footer>
 
