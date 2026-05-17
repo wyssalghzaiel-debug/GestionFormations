@@ -1,49 +1,107 @@
-<?php require 'views/partials/header.php'; ?>
+<?php require 'partials/header.php'; ?>
 
 <section class="formations">
 
 <h1 class="title">
-
 Nos Formations
-
 </h1>
+
+<p class="subtitle">
+Découvrez nos formations premium inspirées des meilleures plateformes e-learning.
+</p>
 
 <div class="cards">
 
-<!-- IA -->
+<?php
+
+$formations = [
+
+[
+"id"=>1,
+"titre"=>"Intelligence Artificielle",
+"prix"=>"299 DT",
+"image"=>"https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
+"description"=>"Machine Learning et Deep Learning."
+],
+
+[
+"id"=>2,
+"titre"=>"Data Science",
+"prix"=>"249 DT",
+"image"=>"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+"description"=>"Analyse des données avec Python."
+],
+
+[
+"id"=>3,
+"titre"=>"Développement Web",
+"prix"=>"199 DT",
+"image"=>"https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200",
+"description"=>"HTML, CSS, PHP, JavaScript."
+],
+
+[
+"id"=>4,
+"titre"=>"Cybersécurité",
+"prix"=>"349 DT",
+"image"=>"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200",
+"description"=>"Ethical hacking et sécurité."
+],
+
+[
+"id"=>5,
+"titre"=>"Développement Mobile",
+"prix"=>"279 DT",
+"image"=>"https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
+"description"=>"Flutter Android iOS."
+],
+
+[
+"id"=>6,
+"titre"=>"Cloud Computing",
+"prix"=>"399 DT",
+"image"=>"https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+"description"=>"AWS Docker Kubernetes."
+]
+
+];
+
+foreach($formations as $formation):
+
+?>
 
 <div class="card">
 
+<div class="card-image">
+
 <img
-src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200"
-alt="IA">
+src="<?= $formation['image']; ?>"
+alt="<?= $formation['titre']; ?>">
+
+</div>
 
 <div class="card-body">
 
 <h2>
-
-Intelligence Artificielle
-
+<?= $formation['titre']; ?>
 </h2>
 
 <p>
-
-Maîtrisez le machine learning
-et les réseaux de neurones.
-
+<?= $formation['description']; ?>
 </p>
 
-<h3>
+<div class="price">
+<?= $formation['prix']; ?>
+</div>
 
-299.00 DT
+<div class="card-buttons">
 
-</h3>
 
 <a
-href="index.php?page=formation&id=1"
+href="index.php?page=inscription&id=<?= $formation['id']; ?>"
 class="btn">
 
-Voir Formation
+S'inscrire à la formation
 
 </a>
 
@@ -51,218 +109,12 @@ Voir Formation
 
 </div>
 
-
-<!-- DATA SCIENCE -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200"
-alt="Data Science">
-
-<div class="card-body">
-
-<h2>
-
-Data Science avec Python
-
-</h2>
-
-<p>
-
-Analysez des données avec
-Python, Pandas et Matplotlib.
-
-</p>
-
-<h3>
-
-249.00 DT
-
-</h3>
-
-<a
-href="index.php?page=formation&id=2"
-class="btn">
-
-Voir Formation
-
-</a>
-
 </div>
 
-</div>
-
-
-<!-- WEB -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
-alt="Web">
-
-<div class="card-body">
-
-<h2>
-
-Développement Web Full Stack
-
-</h2>
-
-<p>
-
-Créez des apps web avec
-HTML, CSS, PHP et MySQL.
-
-</p>
-
-<h3>
-
-199.00 DT
-
-</h3>
-
-<a
-href="index.php?page=formation&id=3"
-class="btn">
-
-Voir Formation
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- CYBER -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200"
-alt="Cyber">
-
-<div class="card-body">
-
-<h2>
-
-Cybersécurité & Ethical Hacking
-
-</h2>
-
-<p>
-
-Apprenez à sécuriser des systèmes
-et à tester leur résistance.
-
-</p>
-
-<h3>
-
-349.00 DT
-
-</h3>
-
-<a
-href="index.php?page=formation&id=4"
-class="btn">
-
-Voir Formation
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- MOBILE -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200"
-alt="Mobile">
-
-<div class="card-body">
-
-<h2>
-
-Développement Mobile
-
-</h2>
-
-<p>
-
-Développez des applications
-Android & iOS modernes.
-
-</p>
-
-<h3>
-
-279.00 DT
-
-</h3>
-
-<a
-href="index.php?page=formation&id=5"
-class="btn">
-
-Voir Formation
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- CLOUD -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"
-alt="Cloud">
-
-<div class="card-body">
-
-<h2>
-
-Cloud Computing
-
-</h2>
-
-<p>
-
-Maîtrisez AWS, Docker
-et Kubernetes.
-
-</p>
-
-<h3>
-
-399.00 DT
-
-</h3>
-
-<a
-href="index.php?page=formation&id=6"
-class="btn">
-
-Voir Formation
-
-</a>
-
-</div>
-
-</div>
+<?php endforeach; ?>
 
 </div>
 
 </section>
 
-<?php require 'views/partials/ffooter.php'; ?>
+<?php require 'partials/ffooter.php'; ?>

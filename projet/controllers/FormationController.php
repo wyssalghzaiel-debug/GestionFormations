@@ -2,7 +2,7 @@
 
 require_once 'models/fformation.php';
 
-$formations = Formation::getAll();
+$formations = FormationModel::getAll();
 
 require 'views/formations.php';
 

@@ -2,30 +2,37 @@
 
 require_once 'Database.php';
 
-class Formation {
+class FormationModel
+{
 
-    public static function getAll(){
+public static function getAll()
+{
 
-        $pdo = Database::connect();
+$db = Database::connect();
 
-        $stmt = $pdo->query(
-            "SELECT * FROM formations"
-        );
+$sql = "SELECT * FROM formations";
 
-        return $stmt->fetchAll();
-    }
+$stmt = $db->query($sql);
 
-    public static function getById($id){
+return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $pdo = Database::connect();
-
-        $stmt = $pdo->prepare(
-            "SELECT * FROM formations WHERE id=?"
-        );
-
-        $stmt->execute([$id]);
-
-        return $stmt->fetch();
-    }
 }
+
+public static function getById($id)
+{
+
+$db = Database::connect();
+
+$sql = "SELECT * FROM formations WHERE id = ?";
+
+$stmt = $db->prepare($sql);
+
+$stmt->execute([$id]);
+
+return $stmt->fetch(PDO::FETCH_ASSOC);
+
+}
+
+}
+
 ?>

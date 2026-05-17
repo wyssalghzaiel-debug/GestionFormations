@@ -1,39 +1,33 @@
-<?php require 'views/partials/header.php'; ?>
+<?php require 'partials/header.php'; ?>
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-text">
 
 <h1>
-
-Plateforme Premium
-de Formations
-
+Apprenez les compétences du futur
 </h1>
 
 <p>
-
-Apprenez les compétences
-les plus demandées.
-
+Développement Web, IA,
+Data Science, Cybersécurité
+et plus encore.
 </p>
 
-<a
-href="index.php?page=formations"
-class="btn">
-
+<a href="index.php?page=formations" class="btn">
 Explorer les formations
-
 </a>
 
 </div>
 
 <div class="hero-image">
 
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
+alt="hero">
 
 </div>
 
 </section>
 
-<?php require 'views/partials/ffooter.php'; ?>
+<?php require 'partials/ffooter.php'; ?>

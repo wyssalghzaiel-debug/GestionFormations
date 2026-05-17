@@ -1,39 +1,114 @@
-<?php require 'views/partials/header.php'; ?>
+<?php require 'partials/header.php'; ?>
 
-<section class="payment-section">
+<?php
 
-    <div class="payment-card">
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
-        <h1>
-            Paiement sécurisé
-        </h1>
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        <h2>
-            <?= $inscription['formation_titre'] ?>
-        </h2>
+    $_SESSION['paiement_ok'] = true;
 
-        <p class="price">
+    header('Location:index.php?page=formation&id='.$id);
 
-            <?= $inscription['prix'] ?> DT
+    exit();
+}
 
-        </p>
+?>
 
+<section class="payment-page">
 
-        <form method="POST">
+<div class="payment-box">
 
-            <button
-            type="submit"
-            name="mode"
-            value="ok">
+<h1>
+Paiement sécurisé
+</h1>
 
-                Paiement réussi
+<p class="payment-subtitle">
+Finalisez votre achat pour débloquer
+la formation premium.
+</p>
 
-            </button>
+<form method="POST">
 
-        </form>
+<div class="form-group">
 
-    </div>
+<label>
+Nom sur la carte
+</label>
+
+<input
+type="text"
+name="nom_carte"
+placeholder="Nom complet"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Numéro carte bancaire
+</label>
+
+<input
+type="text"
+name="numero_carte"
+placeholder="1234 5678 9012 3456"
+maxlength="19"
+required>
+
+</div>
+
+<div class="payment-row">
+
+<div class="form-group">
+
+<label>
+Date expiration
+</label>
+
+<input
+type="text"
+name="expiration"
+placeholder="MM/AA"
+maxlength="5"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+CVV
+</label>
+
+<input
+type="password"
+name="cvv"
+placeholder="123"
+maxlength="4"
+required>
+
+</div>
+
+</div>
+
+<button type="submit" class="pay-btn">
+
+Payer maintenant
+
+</button>
+
+</form>
+
+<div class="secure-payment">
+
+🔒 Paiement 100% sécurisé
+
+</div>
+
+</div>
 
 </section>
 
-<?php require 'views/partials/ffooter.php'; ?>
+<?php require 'partials/ffooter.php'; ?>

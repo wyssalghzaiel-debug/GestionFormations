@@ -4,58 +4,66 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-if ($page == 'cours') {
+/* ======================
+PROTECTION COURS
+====================== */
 
-    if (
+if($page == 'cours'){
+
+    if(
         !isset($_SESSION['paiement_ok'])
-    ) {
+        ||
+        $_SESSION['paiement_ok'] != true
+    ){
 
-        header('Location:index.php');
+        header('Location:index.php?page=paiement');
 
         exit();
     }
 }
 
+/* ======================
+ROUTING
+====================== */
+
 switch($page){
 
+    case 'home':
+        require 'views/home.php';
+    break;
+
     case 'formations':
-
-        require 'controllers/FormationController.php';
-
-        break;
+        require 'views/formations.php';
+    break;
 
     case 'formation':
-
-        require 'controllers/CoursController.php';
-
-        break;
+        require 'views/cours.php';
+    break;
 
     case 'inscription':
-
-        require 'controllers/Inscription.php';
-
-        break;
+        require 'views/inscription.php';
+    break;
 
     case 'paiement':
-
-        require 'controllers/PaiementController.php';
-
-        break;
-
-    case 'cours':
-
-        require 'controllers/CoursController.php';
-
-        break;
+        require 'views/paiement.php';
+    break;
 
     case 'succes':
 
-        require 'views/succes.php';
+        $_SESSION['paiement_ok'] = true;
 
-        break;
+        header(
+            'Location:index.php?page=cours&id=' .
+            $_SESSION['formation_id']
+        );
+
+    break;
+
+    case 'cours':
+        require 'views/cours.php';
+    break;
 
     default:
-
         require 'views/home.php';
 }
 ?>

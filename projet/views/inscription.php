@@ -1,28 +1,26 @@
-<?php require 'views/partials/header.php'; ?>
+<?php require 'partials/header.php'; ?>
 
-<section class="form-page">
+<?php
 
-<div class="form-container">
+$id = $_GET['id'] ?? 1;
 
-<div class="form-left">
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+$_SESSION['inscription_ok'] = true;
 
+header('Location:index.php?page=paiement&id='.$id);
 
+exit();
 
+}
 
+?>
 
-</div>
+<section class="form-container">
 
+<form method="POST" class="premium-form">
 
-<div class="form-right">
-
-<form method="POST">
-
-<h2>
-
-Inscription Formation
-
-</h2>
+<h1>Inscription Formation</h1>
 
 <input
 type="text"
@@ -39,41 +37,17 @@ required>
 <input
 type="email"
 name="email"
-placeholder="Adresse Email"
+placeholder="Email"
 required>
-
-<select name="formation_id" required>
-
-<option value="">
-
-Choisir une formation
-
-</option>
-
-<?php foreach($formations as $f): ?>
-
-<option value="<?= $f['id'] ?>">
-
-<?= $f['titre'] ?>
-
-</option>
-
-<?php endforeach; ?>
-
-</select>
 
 <button type="submit">
 
-Valider Inscription
+Continuer vers paiement
 
 </button>
 
 </form>
 
-</div>
-
-</div>
-
 </section>
 
-<?php require 'views/partials/ffooter.php'; ?>
+<?php require 'partials/ffooter.php'; ?>

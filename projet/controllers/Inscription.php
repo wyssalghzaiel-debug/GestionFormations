@@ -1,29 +1,31 @@
 <?php
 
-require_once 'models/iinscriptions.php';
 require_once 'models/fformation.php';
+require_once 'models/iinscriptions.php';
 
-$formations = Formation::getAll();
+$formations = FormationModel::getAll();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    $id = InscriptionModel::ajouter(
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$email = $_POST['email'];
+$formation_id = $_POST['formation_id'];
 
-        $_POST['nom'],
-        $_POST['prenom'],
-        $_POST['email'],
-        $_POST['formation_id']
+InscriptionModel::ajouter(
+$nom,
+$prenom,
+$email,
+$formation_id
+);
 
-    );
+header(
+'Location:index.php?page=paiement&id='
+.$formation_id
+);
 
-    $_SESSION['paiement_ok'] = true;
+exit();
 
-    $_SESSION['formation_id']
-    = $_POST['formation_id'];
-
-    header(
-        'Location:index.php?page=succes'
-    );
 }
 
 require 'views/inscription.php';

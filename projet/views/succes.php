@@ -1,21 +1,27 @@
-<?php require 'views/partials/header.php'; ?>
+<?php require 'partials/header.php'; ?>
 
-<section class="success">
+<section class="success-page">
+
+<div class="success-box">
 
 <h1>
-
-Paiement effectué avec succès
-
+Paiement réussi
 </h1>
 
+<p>
+Votre accès premium est activé.
+</p>
+
 <a
-href="index.php?page=formations"
+href="index.php?page=cours&id=<?= $_SESSION['formation_id']; ?>"
 class="btn">
 
-Retour aux formations
+Accéder aux cours
 
 </a>
 
+</div>
+
 </section>
 
-<?php require 'views/partials/ffooter.php'; ?>
+<?php require 'partials/ffooter.php'; ?>

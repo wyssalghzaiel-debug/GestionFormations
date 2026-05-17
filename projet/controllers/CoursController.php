@@ -2,9 +2,17 @@
 
 require_once 'models/fformation.php';
 
-$id = $_GET['id'] ?? 1;
+$id = isset($_GET['id'])
+? (int) $_GET['id']
+: 1;
 
-$formation = Formation::getById($id);
+$formation = FormationModel::getById($id);
+
+if(!$formation){
+
+die("Formation introuvable");
+
+}
 
 require 'views/cours.php';
 

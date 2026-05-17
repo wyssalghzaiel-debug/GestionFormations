@@ -1,31 +1,17 @@
 <?php
 
-require_once 'models/iinscriptions.php';
+require_once 'models/inscriptions.php';
 
-$id = (int) ($_GET['id'] ?? 0);
+$id = $_GET['id'] ?? 0;
 
-$inscription = InscriptionModel::getById($id);
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['paiement_ok'] = true;
 
-    if ($_POST['mode'] === 'ok') {
+    header('Location:index.php?page=succes');
 
-        InscriptionModel::marquerPaye($id);
-
-        $_SESSION['paiement_ok'] = true;
-
-        $_SESSION['formation_id']
-        = $inscription['formation_id'];
-
-        $_SESSION['etudiant_prenom']
-        = $inscription['prenom'];
-
-        header('Location:index.php?page=succes');
-
-        exit();
-    }
+    exit();
 }
 
 require 'views/paiement.php';
-
 ?>
