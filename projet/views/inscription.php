@@ -2,43 +2,65 @@
 
 <?php
 
-$id = $_GET['id'] ?? 1;
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-$_SESSION['inscription_ok'] = true;
-
-header('Location:index.php?page=paiement&id='.$id);
-
-exit();
-
-}
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
 ?>
 
 <section class="form-container">
 
-<form method="POST" class="premium-form">
+<form 
+method="POST"
+action="index.php?page=inscription&id=<?= $id; ?>"
+class="premium-form">
 
-<h1>Inscription Formation</h1>
+<h1>
+Inscription Formation
+</h1>
+
+<p class="form-subtitle">
+Complétez vos informations pour accéder à la formation.
+</p>
+
+<input 
+type="hidden"
+name="formation_id"
+value="<?= $id; ?>">
+
+<div class="form-group">
+
+<label>Nom</label>
 
 <input
 type="text"
 name="nom"
-placeholder="Nom"
+placeholder="Votre nom"
 required>
+
+</div>
+
+<div class="form-group">
+
+<label>Prénom</label>
 
 <input
 type="text"
 name="prenom"
-placeholder="Prénom"
+placeholder="Votre prénom"
 required>
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
 
 <input
 type="email"
 name="email"
-placeholder="Email"
+placeholder="exemple@gmail.com"
 required>
+
+</div>
 
 <button type="submit">
 

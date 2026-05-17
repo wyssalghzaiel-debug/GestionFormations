@@ -41,7 +41,7 @@ switch($page){
     break;
 
     case 'inscription':
-        require 'views/inscription.php';
+    require 'controllers/InscriptionController.php';
     break;
 
     case 'paiement':

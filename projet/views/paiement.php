@@ -2,13 +2,55 @@
 
 <?php
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
+require_once 'models/iinscriptions.php';
+
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+
+/* =========================================
+   VERIFICATION ID INSCRIPTION
+========================================= */
+
+if($id <= 0){
+
+    header('Location:index.php?page=formations');
+
+    exit();
+}
+
+
+/* =========================================
+   TRAITEMENT PAIEMENT
+========================================= */
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+    /* ===== UPDATE STATUT ===== */
+
+    InscriptionModel::updatePaiement($id);
+
     $_SESSION['paiement_ok'] = true;
 
-    header('Location:index.php?page=formation&id='.$id);
+
+    /* ===== RECUP FORMATION ===== */
+
+    $inscription = InscriptionModel::getById($id);
+
+    $_SESSION['formation_id']
+    = $inscription['formation_id'];
+
+
+    /* ===== REDIRECTION ===== */
+
+    header(
+        'Location:index.php?page=formation&id='
+        .
+        $_SESSION['formation_id']
+    );
 
     exit();
 }
@@ -17,18 +59,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <section class="payment-page">
 
-<div class="payment-box">
+<div class="payment-container">
 
-<h1>
-Paiement sécurisé
-</h1>
+<div class="payment-left">
 
-<p class="payment-subtitle">
-Finalisez votre achat pour débloquer
-la formation premium.
-</p>
 
-<form method="POST">
+
+
+<div class="payment-right">
+
+<form method="POST" class="payment-form">
+
+<h2>
+Informations bancaires
+</h2>
 
 <div class="form-group">
 
@@ -44,6 +88,7 @@ required>
 
 </div>
 
+
 <div class="form-group">
 
 <label>
@@ -58,6 +103,7 @@ maxlength="19"
 required>
 
 </div>
+
 
 <div class="payment-row">
 
@@ -76,6 +122,7 @@ required>
 
 </div>
 
+
 <div class="form-group">
 
 <label>
@@ -93,17 +140,20 @@ required>
 
 </div>
 
+
 <button type="submit" class="pay-btn">
 
 Payer maintenant
 
 </button>
 
-</form>
-
 <div class="secure-payment">
 
 🔒 Paiement 100% sécurisé
+
+</div>
+
+</form>
 
 </div>
 
